@@ -4,8 +4,8 @@ import Astar from "../Algorithm/astar";
 import "./Pathfind.css";
 
 
-const cols = 3;
-const rows = 3;
+const cols = 25;
+const rows = 10;
 
 const NODE_START_ROW = 0;
 const NODE_START_COL = 0;
@@ -72,7 +72,7 @@ const Pathfind = () => {
     this.isEnd = this.x === NODE_END_ROW && this.y === NODE_END_COL;
     this.neighbours = [];
     this.isWall = false;
-    if(Math.random(1) <0.2){
+    if (Math.random(1) < 0.2) {
       this.isWall = true;
     }
     this.previous = undefined;
@@ -95,15 +95,15 @@ const Pathfind = () => {
         return (
           <div key={rowIndex} className="rowWrapper">
             {row.map((col, colIndex) => {
-              const { isStart, isEnd,isWall } = col;
-              return(
-               <Node
-                key={colIndex} 
-                isStart={isStart}
-                 isEnd={isEnd} 
-                 row={rowIndex} 
-                 col={colIndex}
-                 isWall = {isWall}
+              const { isStart, isEnd, isWall } = col;
+              return (
+                <Node
+                  key={colIndex}
+                  isStart={isStart}
+                  isEnd={isEnd}
+                  row={rowIndex}
+                  col={colIndex}
+                  isWall={isWall}
                 />
               );
             })}
